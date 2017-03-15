@@ -1,0 +1,25 @@
+{
+    "name": "techart/mail",
+    "description": "Создание и отправка почтовых сообщений",
+    "version" : "3.0.2",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Techart",
+            "homepage": "http://web-techart.ru/"
+        }
+    ],
+    "autoload" : {
+        "psr-4": {
+            "Techart\\Mail\\": "src/Mail"
+        },
+        "classmap": ["src/Mail.php"]
+    },
+    "require": {
+        "PHP": ">=5.5",
+        "techart/io": ">=3.0",
+        "techart/proc": ">=3.0",
+        "techart/mime": ">=3.0",
+        "techart/object": ">=3.0"
+    }
+}
