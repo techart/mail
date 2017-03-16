@@ -12,24 +12,24 @@ namespace Techart\Mail;
  */
 class Serialize
 {
-	/**
-	 * Фабричный метод, возвращает объект класаа Mail.Serialize.Encoder
-	 *
-	 * @return \Techart\Mail\Serialize\Encoder
-	 */
-	static public function Encoder()
-	{
-		return new \Techart\Mail\Serialize\Encoder();
-	}
+    /**
+     * Фабричный метод, возвращает объект класаа Mail.Serialize.Encoder
+     *
+     * @return \Techart\Mail\Serialize\Encoder
+     */
+    static public function Encoder()
+    {
+        return new \Techart\Mail\Serialize\Encoder();
+    }
 
-	/**
-	 * Фабричный метод, возвращает объект класаа Mail.Serialize.Decoder
-	 *
-	 * @return \Techart\Mail\Serialize\Decoder
-	 */
-	static public function Decoder()
-	{
-		return new \Techart\Mail\Serialize\Decoder();
-	}
+    /**
+     * Фабричный метод, возвращает объект класаа Mail.Serialize.Decoder
+     *
+     * @return \Techart\Mail\Serialize\Decoder
+     */
+    static public function Decoder()
+    {
+        return new \Techart\Mail\Serialize\Decoder();
+    }
 
 }
