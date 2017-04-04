@@ -4,47 +4,21 @@ namespace Techart\Mail;
 
 class Message
 {
-
-    protected static $options = array(
-        'transport' => 'php',
-        'transport_classes' => array(
-            'sendmail' => '\\Techart\\Mail\\Transport\\SendmailSender',
-            'php' => '\\Techart\\Mail\\Transport\\PHPSender',
-        )
-    );
-
-    public static function initialize($options = array())
+    /**
+     * @return object
+     */
+    public static function transport()
     {
-        self::options($options);
-    }
-
-    public static function options($options = array())
-    {
-        self::$options = array_replace_recursive(self::$options, $options);
-        return self::$options;
-    }
-
-    public static function option($name)
-    {
-        return self::$options[$name];
-    }
-
-    public static function transport($name = null)
-    {
-        if (is_null($name)) {
-            $name = self::option('transport');
-        }
-        $classes = self::option('transport_classes');
-        if (!isset($classes[$name])) {
-            return null;
-        }
-        $class = $classes[$name];
+        $class = \Techart\Core::config('mail:transport', '\\Techart\\Mail\\Transport\\PHPSender');
         return \Techart\Core::make($class);
     }
 
-    public static function send($msg, $transport = null)
+    /**
+     * @param $msg
+     */
+    public static function send($msg)
     {
-        $transport = self::transport($transport);
+        $transport = self::transport();
         if ($transport) {
             $transport->send($msg);
         }

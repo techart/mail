@@ -33,9 +33,9 @@ class Message
         }
     }
 
-    public function send($transport = null)
+    public function send()
     {
-        return \Techart\Mail\Message::send($this, $transport);
+        return \Techart\Mail\Message::send($this);
     }
 
     /**
