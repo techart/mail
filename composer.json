@@ -1,7 +1,7 @@
 {
     "name": "techart/mail",
     "description": "Создание и отправка почтовых сообщений",
-    "version" : "3.0.5",
+    "version" : "3.0.6",
     "license": "Apache-2.0",
     "authors": [
         {

@@ -225,7 +225,8 @@ class Field
      */
     private function line_length($txt)
     {
-        return strlen(end(explode("\n", $txt)));
+        $lines = explode("\n", $txt);
+        return strlen(end($lines));
     }
 
     /**
@@ -331,10 +332,10 @@ class Field
      */
     protected function canonicalize($name)
     {
-        $parts = \Techart\Core\Arrays::map(
-            'return strtolower($x);',
-            \Techart\Core\Strings::split_by('-', trim($name))
-        );
+    
+        $parts = array_map(function($x) {
+            return strtolower($x);
+        }, \Techart\Core\Strings::split_by('-', trim($name)));
 
         foreach ($parts as &$part)
             $part = isset(self::$acronyms[$part]) ?
